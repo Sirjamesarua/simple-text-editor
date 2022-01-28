@@ -1,0 +1,136 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title></title>
+    <script src="./js/script.js"></script>
+    <link rel="stylesheet" href="./css/w3.css" />
+    <link rel="stylesheet" href="./css/bootstrap.css" />
+    <link rel="stylesheet" href="https://font.googleapis.com/css?family=Roboto"></link>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" ></link>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
+    
+	<style>
+			/*MY STYLE*/
+			body{
+				font-size: 110%;
+				font-family:serif;
+			}
+
+			.border-center{
+				display:flex;
+				justify-content:center;
+			}
+			
+			.borders-center{
+				display:flex;
+				flex-direction:column;
+				align-items:center;
+			}
+
+			.main-container{
+			}
+
+			@media screen and (orientation:landscape){
+				.main-container{
+					width:80%;
+				}
+
+			}
+
+
+
+			/*MESSAGE*/
+
+	</style>
+	
+</head>
+<body>
+		
+
+	<div class="border-center">
+		<div class="w3-center main-container w3-border w3-margin w3-round-xxlarge" style="background-color:rgb(222,222,222)">
+			<br />
+
+			<b class="" style="font-size:150%;"><u>MY SIMPLE TEXT EDITOR</u></b><br />
+
+
+			<br />
+			<br />
+			<div class="border-center">
+				<div class="" style="width:80%;">
+					
+					<b class="" style="font-size:150%;">Title :</b><br />
+					<div class="w3-border w3-round-xlarge w3-white" contenteditable="true" style="height:35px;">This is just a simple title for my project</div>
+					<br />
+					<br />
+
+					<b class="" style="font-size:150%;">Content :</b><br />
+					<!--CONTROLS BTN-->
+					<br />
+					<div class="" style="">
+						<button id="boldbtn" onclick="changetext('bold','boldbtn')"><b>B</b></button>
+						<button id="underlinebtn" onclick="changetext('underline','underlinebtn')"><u>U</u></button>
+						<button id="italicbtn" onclick="changetext('italic','italicbtn')"><i>I</i></button>
+						<button id="linkbtn" onclick="createlink()">Link</button>
+						<!--<button id="colorbtn" onclick="changecolor()">Link</button>-->
+						<input type="color" id="colorbtn"></input>
+						<!--<button id="imgbtn">IMG</button>-->
+					</div>
+					<br />
+					<div class="w3-border w3-round-xlarge w3-white" contenteditable="true" spellcheck="false" style="height:400px;">This is just a simple sentence</div>
+					<br />
+					<br />
+					<br />
+					<br />
+
+					<!--SUBMIT-->
+					<button class="w3-round-xlarge w3-padding" style="font-size: 150%;"><b>DOWNLOAD PDF</b></button>
+
+				</div>
+			</div>
+
+
+
+			<br />
+			<br />
+		</div>
+	</div>
+
+		<script>
+				document.designMoode="on";
+
+				const boldbtn=document.getElementById('boldbtn');
+				const underlinebtn=document.getElementById('uderlinebtn');
+				const italicbtn=document.getElementById('italicbtn');
+				const linkbtn=document.getElementById('linkbtn');
+				const imgbtn=document.getElementById('imgbtn');
+
+				
+				function changetext(design,id){
+					if(document.getElementById(id).style.background =="blue"){
+						document.getElementById(id).style.background ="white";
+					}else{
+						document.getElementById(id).style.background ="blue";
+					}
+					document.execCommand(design,true);
+					//document.execCommand('foreColor',false,'#ff0000');
+				}
+
+				colorbtn.addEventListener('input',()=>{
+					document.execCommand('foreColor',false,colorbtn.value);
+				})
+
+				function createlink(){
+					var url=prompt("Enter the URL","https://");
+					if(url != null && url !=""){
+					document.execCommand('createlink',false,url);
+					}
+				}
+
+		</script>
+
+
+
+</body>
+</html>
